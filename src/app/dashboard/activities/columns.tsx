@@ -132,12 +132,12 @@ export const columns: ColumnDef<Credentials>[] = [
           <DropdownMenuContent align="end">
             
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(Credentials.id)}
+              onClick={() => navigator.clipboard.writeText(Credentials.patientID)}
             >
               Copy Patients ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => {push(`/dashboard/report/${Credentials.id}`)}}>Analysis Report</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => {push(`/dashboard/report/${Credentials.patientID}`)}}>Analysis Report</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )

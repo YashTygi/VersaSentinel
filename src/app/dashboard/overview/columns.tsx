@@ -86,34 +86,6 @@ export const columns: ColumnDef<Credentials>[] = [
     },
   },
   {
-    accessorKey: "analysis",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Analysis
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-  },
-  {
-    accessorKey: "riskFactor",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Risk Factor
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-  },
-  {
     id: "actions",
     cell: function CellComponent({ row }) {
       const Credentials = row.original
@@ -131,12 +103,12 @@ export const columns: ColumnDef<Credentials>[] = [
           <DropdownMenuContent align="end">
             
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(Credentials.id)}
+              onClick={() => navigator.clipboard.writeText(Credentials.patientID)}
             >
               Copy Patients ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => {push(`/dashboard/report/${Credentials.id}`)}}>Analysis Report</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => {push(`/dashboard/report/${Credentials.patientID}`)}}>Analysis Report</DropdownMenuItem>
             <DropdownMenuItem>Download CSV File</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
